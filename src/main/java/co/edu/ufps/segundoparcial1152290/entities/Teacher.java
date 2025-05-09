@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-public class Teacher extends User {
+public class Teacher extends Usuario {
 
     @OneToMany(mappedBy = "teacher")
     private List<TeacherSchedule> availableSchedules;
