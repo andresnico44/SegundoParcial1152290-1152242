@@ -1,4 +1,4 @@
-package co.edu.ufps.segundoparcial1152290.entities;
+package co.edu.ufps.segundoparcial1152290.entities.enums;
 
 public enum EnrollmentStatusEnum {
     ACTIVE,
