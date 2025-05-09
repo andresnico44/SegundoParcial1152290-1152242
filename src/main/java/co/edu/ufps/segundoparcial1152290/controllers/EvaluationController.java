@@ -1,4 +1,4 @@
-package co.edu.ufps.segundoparcial1152290.controller;
+package co.edu.ufps.segundoparcial1152290.controllers;
 
 import java.util.List;
 
