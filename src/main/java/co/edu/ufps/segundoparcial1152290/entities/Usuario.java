@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
 
+import co.edu.ufps.segundoparcial1152290.entities.enums.EnrollmentStatusEnum;
+import co.edu.ufps.segundoparcial1152290.entities.enums.RoleEnum;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter @Setter
