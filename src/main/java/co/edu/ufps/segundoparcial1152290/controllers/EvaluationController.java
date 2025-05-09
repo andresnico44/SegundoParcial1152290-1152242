@@ -2,14 +2,17 @@ package co.edu.ufps.segundoparcial1152290.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.ufps.segundoparcial1152290.DTO.EvaluationRequest;
+import co.edu.ufps.segundoparcial1152290.DTO.EvaluationSearchDTO;
 import co.edu.ufps.segundoparcial1152290.DTO.GradeRequest;
 import co.edu.ufps.segundoparcial1152290.DTO.UpdateGradeRequest;
 import co.edu.ufps.segundoparcial1152290.entities.Evaluation;
@@ -65,4 +68,10 @@ public class EvaluationController {
             request.getReason()
         );
     }
+
+    @GetMapping("/search")
+public ResponseEntity<List<EvaluationSearchDTO>> searchEvaluations(
+        @RequestParam("keyword") String keyword) {
+    return ResponseEntity.ok(evaluationService.searchEvaluations(keyword));
+}
 }

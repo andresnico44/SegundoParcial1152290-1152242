@@ -1,5 +1,6 @@
 package co.edu.ufps.segundoparcial1152290.services;
 
+import co.edu.ufps.segundoparcial1152290.DTO.EvaluationSearchDTO;
 import co.edu.ufps.segundoparcial1152290.entities.*;
 import co.edu.ufps.segundoparcial1152290.repositories.*;
 import jakarta.transaction.Transactional;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -103,4 +105,16 @@ public class EvaluationService {
 
         return gradeRepository.save(grade);
     }
+
+    public List<EvaluationSearchDTO> searchEvaluations(String keyword) {
+    List<Evaluation> results = evaluationRepository.searchByKeyword(keyword);
+
+    return results.stream().map(e -> new EvaluationSearchDTO(
+            e.getId(),
+            e.getTitle(),
+            e.getSubject().getName(),
+            e.getSubject().getTeacher().getName(),
+            e.getDate()
+    )).collect(Collectors.toList());
+}
 }
